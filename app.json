@@ -1,9 +1,10 @@
 {
   "expo": {
-    "name": "starter-kit-expo",
-    "slug": "starter-kit-expo",
+    "name": "CE Manager",
+    "slug": "ce-manager",
+    "owner": "hudsommariano",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/images/icon.png",
     "scheme": "starterkitexpo",
     "userInterfaceStyle": "automatic",
@@ -17,11 +18,21 @@
       "supportsTablet": true
     },
     "android": {
+      "package": "com.cemanager.app",
+      "versionCode": 1,
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "permissions": [
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.CAMERA",
+        "android.permission.RECEIVE_BOOT_COMPLETED",
+        "android.permission.VIBRATE",
+        "android.permission.RECORD_AUDIO"
+      ]
     },
     "web": {
       "bundler": "metro",
@@ -30,11 +41,38 @@
     },
     "plugins": [
       "expo-router",
-      "expo-web-browser",
-      "expo-font"
+
+      "expo-font",
+      "expo-screen-orientation",
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/images/icon.png",
+          "color": "#ffffff"
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "A aplicação precisa acessar suas fotos para selecionar imagens das comunidades."
+        }
+      ],
+      [
+        "expo-updates",
+        {
+          "username": "hudsommariano"
+        }
+      ],
+      "./plugins/withFirebaseManifestFix.js"
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "88511621-eaf5-47c6-873a-7c680ed2a6be"
+      }
     }
   }
 }

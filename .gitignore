@@ -32,6 +32,14 @@ yarn-error.*
 
 # local env files
 .env*.local
+.env
+.env.production
+.env.development
+.env.staging
 
 # typescript
 *.tsbuildinfo
+
+# APK files (use releases instead)
+*.apk
+*.aab
